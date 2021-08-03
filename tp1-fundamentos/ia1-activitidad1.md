@@ -1,9 +1,11 @@
- Buscar 2 ejemplos de aplicaciones de inteligencia artificial.
+ Misma informacion en archivo de google docs: https://docs.google.com/document/d/1nsirEKZwDZhj1eQQ-EK3NQyKIwPrJvqLNjxBKSDrR8s/edit?usp=sharing
+  
+  1. Buscar 2 ejemplos de aplicaciones de inteligencia artificial.
 GitHub Copilot: Herramienta diseñada conjuntamente entre Google y GitHub. Se basa en la cantidad de código testeado y verificado con el cual cuenta la plataforma GitHub, en numerosos lenguajes de programación, sumado a la cantidad de textos que posee Google, dieron origen a esta inteligencia artificial. Esta IA, aprende buscando patrones entre todos los códigos de los que dispone y basándose en el contexto de lo que el programador está desarrollando, le sugiere tanto como palabras, funciones e incluso bloques completos de código.
 AlphaStar: una inteligencia artificial desarrollada por DeepMind, a la cual se la entrenó con miles y miles de horas de partidas grabadas del famoso juego StarCraft II, consiguiendo así que, bajo algunas restricciones como las razas que deben enfrentarse o el mapa en el cual se debe desenvolver la batalla, la IA fuera capaz de ganarle al 99.8% de los jugadores profesionales de dicho juego. Aprendió patrones y estrategias para ser prácticamente invencible.
 
 
-¿Qué se entiende por inteligencia artificial ?
+  2. ¿Qué se entiende por inteligencia artificial ?
 
 Se puede entender la inteligencia artificial como el conjunto de algoritmos diseñados con el fin de simular las capacidades del ser humano, incluso terminar aprendiendo y desarrollando capacidades más allá de las posibles para una persona común y corriente.
 En esto intervienen disciplinas como el software, la lógica, la informática, la contabilidad y la filosofía, por nombrar a las ramas más visiblemente involucradas .
@@ -14,7 +16,7 @@ Dentro de la propia disciplina, existen múltiples ramas que se dedican a difere
 
 En función de lo que se quiera lograr, es cual de estas ramas se debe utilizar para obtener el mayor provecho. 
 
-¿Qué se entiende por Inteligencia ?
+  3. ¿Qué se entiende por Inteligencia ?
 
 Podemos empezar a describir inteligencia por su definición y etimología:
 Segun etimologia: la palabra inteligencia viene directo del latin como intelligentia de la cual en su estructura se puede extraer, la palabra inter que significa entre, el verbo legere que se podría interpretar como escoger, y los sufijos “nt” que hace referencia a un agente e “ia” que hace referencia a una característica.
@@ -35,7 +37,7 @@ Basándonos en lo antes mencionado, llegamos a la conclusión de que existen mú
 Pero esto está limitado solamente a la inteligencia lógica, racional y analítica. 
 Por esto, la inteligencia artificial no hace realmente alusión a lo que sería la inteligencia en su totalidad, solo llega hasta esta inteligencia cognitiva o racional, ya que lo que intenta hacer, es sacar provecho de este aspecto “inteligente” del ser humano, construyendo agentes y algoritmos capaces de aprender y entender información, de interpretar los datos y obtener conclusiones. Pero estos algoritmos, por ejemplo, podrían deducir el sentimiento o emoción de una persona analizando sus microexpresiones y buscando patrones, pero no serían capaces de ser empáticos, lo cual es un rasgo principal de la inteligencia emocional.
 
-¿Qué se entiende por artificial ?
+  4. ¿Qué se entiende por artificial ?
 
 Del latin la palabra Artificial se entiende como artificiālis, del cual, podemos sacar, etimológicamente, las palabras ars en su estructura como palabra que hace referencia al “arte” y a la palabra “facere” que se relaciona con el verbo “hacer”, es decir, es como “hacer arte”, se refiere a que las cosas que crea o hace el ser humano que salen de la naturaleza son “arte”.
  De lo cual podemos entender que algo artificial es algo que no es natural, que no vino prefabricado por el mundo y la naturaleza si no que fue hecho a medida y diseñado a propósito( o por accidente) por el ser humano.
