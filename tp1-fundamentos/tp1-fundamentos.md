@@ -69,3 +69,7 @@ Actualmente, esta en desarrollo la tecnologia de chips neuronales, los cuales cr
 
 Si bien, hay que tener en cuenta la etica, que algo se pueda hacer, no queire decir que se deba hacer. Dado los medios de los que disponemos hoy en dia, descontanto la IA aplicada al armamento y las posibles fallas que pueda llegar a tener el sistema, los cuales pueden pasar ya que son desarrollados por humanos y los humanos tendemos a equivocarnos y fallar, creo que es totalmente seguro, practico y conveniente la aplicacion de IA a cualquier campo del mundo actual. Pero, llegado el dia que logremos superar la barrera de la "falsa inteligencia", se tendra que poner sobre la mesa muchos asuntos filosoficos, morales e incluso legales. Imaginemos un robot que sea conciente de si mismo, capaz de pensar e incluso tener sueños como en la pelicula "yo robot", ¿que leyes regirian para este robor?, ¿deberiamos juzgarlo como a una persona?.
 Todo esto me parece sumamente controvercial, pero no creo que sea un impedimento o una traba para frenar el desarrollo de estas tecnologias, creo que mas bien son un impulso para forzar a la humanidad a dar el paso hacia la proxima era. Por esto, apuesto firmemente a que la especializacion en las inteligencia artifical va a logar cambiar el mundo, va a ser la nueva "revolucion industrial".
+
+## MAPA MENTAL
+
+![image](https://user-images.githubusercontent.com/61237150/128913275-f83f2c12-c493-4e7a-8ae8-b901bead4bc5.png)
