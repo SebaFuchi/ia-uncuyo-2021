@@ -4,13 +4,14 @@ import agentRandom
 
 
 env = environment.Environment
-env.__init__(env,32,32,1.0)
+env.__init__(env,128,128,0.8)
 
-agent01 = agent.Agent
+agent01 = agentRandom.AgentRandom
+
 
 agent01.__init__(agent01,env)
 
 agent01.think(agent01)
+print("")
 env.get_performance(env)
-
-
+print("")

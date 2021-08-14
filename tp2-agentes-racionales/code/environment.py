@@ -10,7 +10,7 @@ class Environment:
         self.actX = init_posX
         self.actY = init_posY
 
-        total_dirty_spaces = math.trunc((sizeX*sizeY) * dirt_rate)
+        total_dirty_spaces = math.ceil((sizeX*sizeY) * dirt_rate)
         self.dirty_spaces = total_dirty_spaces
         while total_dirty_spaces != 0:
             x = random.randint(0, (sizeX)-1)
@@ -33,7 +33,9 @@ class Environment:
                     cont += 1
         
         result = 100.0 - ((cont * 100)/self.dirty_spaces)
-        print(result)
+        print("Porcentaje de suciedad eliminada: " + str(result) + "%")
+        print("Espacios sucios generados inicialmente: " + str(self.dirty_spaces))
+        print("Espacios sucios restantes: " + str(cont))
         return
 
     def print_enviroment(self):
