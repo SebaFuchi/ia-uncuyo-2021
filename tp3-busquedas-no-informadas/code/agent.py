@@ -1,4 +1,5 @@
 import seeker
+import time
 
 class Agent:
     def __init__(self,env):
@@ -46,10 +47,40 @@ class Agent:
         return
 
     def seekBF(self):
-        path = self.serch.breadth_first_search(self, self.env)
+        print("START")
+        self.env.print_enviroment()
+        start = time.time()
+        path = self.serch.breadth_first_search(self.env)
+        moves = path
         if path == False:
             return False
+        self.paint_path(path)
+        print("------")
+        print("SOLVED")
+        self.env.print_enviroment()
+        end = time.time()
+        print("")
+        print("Time: "+str(end-start))
+        print("Path: " + moves)
 
+    def seekDF(self):
+        print("START")
+        self.env.print_enviroment()
+        start = time.time()
+        path = self.serch.depth_first_search(self.env)
+        moves = path
+        if path == False:
+            return False
+        self.paint_path(path)
+        print("------")
+        print("SOLVED")
+        self.env.print_enviroment()
+        end = time.time()
+        print("")
+        print("Time: "+str(end-start))
+        print("Path: " + moves)
+
+    def paint_path(self, path):
         while len(path) > 0:    
             action = path[0]
             path = path[1:len(path)]

@@ -1,51 +1,32 @@
-import random
+import math
+from operator import itemgetter
+
 
 class Seeker:
-    def breadth_first_search(self, agnt, env):
-        startNode = env.startNode
-        finalNode = env.endNode
-        frontier = [(startNode, "I")]
+    def breadth_first_search(self, env):
+        frontier = [(env.startNode, "I")]
         explored = []
-        
-        result = self.breadth_first_searchR(env, agnt, frontier, explored, finalNode)
+
+        result = self.breadth_first_searchR(env, frontier, explored)
 
         if result != None:
             return result
         return False
-        
 
-    def breadth_first_searchR(self, env, agnt, frontier, explored, finalNode):
+    def breadth_first_searchR(self, env, frontier, explored):
 
         while len(frontier) > 0:
             actNode = frontier.pop(0)
             explored.append(actNode)
 
-            if self.test_path(agnt,actNode[1], finalNode) == True:
-                agnt.env.actX = agnt.env.startX
-                agnt.env.actY = agnt.env.startY
+            if actNode[0] == env.endNode:
                 return actNode[1]
-            else:
-                agnt.env.actX = agnt.env.startX
-                agnt.env.actY = agnt.env.startY
 
-            self.get_valid_nodes(env, frontier, explored, actNode)
-
+            result = self.get_valid_nodes(env, explored, actNode)
+            frontier.extend(result)
         return None
 
-
-    def test_path(self, agnt, path, destiny):
-        while len(path) > 0:    
-            action = path[0]
-            path = path[1:len(path)]
-            agnt.act(action)
-            x = agnt.env.table[agnt.env.actY][agnt.env.actX]
-
-        if x == destiny:
-            return True
-        return False
-            
-    
-    def get_valid_nodes(self, env, frontier, explored, actNode):
+    def get_valid_nodes(self, env, explored, actNode):
 
         tempList = []
         tempExp = []
@@ -55,20 +36,66 @@ class Seeker:
 
         if ((actNode[0].x - 1 >= 0) and (env.table[actNode[0].y][actNode[0].x - 1].value != u"\u2B1B")):
             if (env.table[actNode[0].y][actNode[0].x - 1] not in tempExp) == True:
-                tempList.append((env.table[actNode[0].y][actNode[0].x - 1], actNode[1]+"L"))
+                tempList.append(
+                    (env.table[actNode[0].y][actNode[0].x - 1], actNode[1]+"L"))
 
         if ((actNode[0].x + 1 < env.size) and (env.table[actNode[0].y][actNode[0].x + 1].value != u"\u2B1B")):
             if (env.table[actNode[0].y][actNode[0].x + 1] not in tempExp) == True:
-                tempList.append((env.table[actNode[0].y][actNode[0].x + 1], actNode[1]+"R"))
+                tempList.append(
+                    (env.table[actNode[0].y][actNode[0].x + 1], actNode[1]+"R"))
 
         if ((actNode[0].y - 1 >= 0) and (env.table[actNode[0].y - 1][actNode[0].x].value != u"\u2B1B")):
             if (env.table[actNode[0].y - 1][actNode[0].x] not in tempExp) == True:
-                tempList.append((env.table[actNode[0].y - 1][actNode[0].x], actNode[1]+"U"))
+                tempList.append(
+                    (env.table[actNode[0].y - 1][actNode[0].x], actNode[1]+"U"))
 
         if ((actNode[0].y + 1 < env.size) and (env.table[actNode[0].y + 1][actNode[0].x].value != u"\u2B1B")):
             if (env.table[actNode[0].y + 1][actNode[0].x] not in tempExp) == True:
-                tempList.append((env.table[actNode[0].y + 1][actNode[0].x], actNode[1]+"D"))
+                tempList.append(
+                    (env.table[actNode[0].y + 1][actNode[0].x], actNode[1]+"D"))
 
-        random.shuffle(tempList)
-        frontier.extend(tempList)
-        return
+        tempList = self.point_organizer(tempList, env.endNode)
+        return tempList
+
+    def depth_first_search(self, env):
+        firstNode = (env.startNode, "I")
+        explored = []
+
+        result = self.depth_first_searchR(env, firstNode, explored, env.size*2)
+        if result != None:
+            return result
+        return False
+
+
+    def depth_first_searchR(self, env, actNode, explored, limit):
+        if limit > 0:
+            explored.append(actNode)
+
+            if actNode[0] == env.endNode:
+                return actNode[1]
+
+            result = self.get_valid_nodes(env, explored, actNode)
+
+            while len(result) > 0:
+                node = result.pop(0)
+                res = self.depth_first_searchR(env, node, explored, limit - 1)
+                if res != None:
+                    return res
+        return None
+
+
+    def point_organizer(self, list, destiny):
+        emptyList = []
+
+        for element in list:
+            res = math.sqrt((element[0].x-destiny.x)**2 + (element[0].y-destiny.y)**2)
+            obj = (element, res)
+            emptyList.append(obj)
+        emptyList = sorted(emptyList, key=itemgetter(1))
+
+        restList = []
+
+        for element in emptyList:
+            restList.append(element[0])
+
+        return restList
