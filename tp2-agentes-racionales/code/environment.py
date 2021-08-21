@@ -39,6 +39,9 @@ class Environment:
         return
 
     def print_enviroment(self):
-        for i in range(len(self.table)):
-            print(self.table[i])
-            print()
+        a = ""
+        for k in range(len(self.table)):
+            for j in range(len(self.table)):
+                a+=str(self.table[k][j])+'\t'
+            print (a)
+            a=""
