@@ -4,8 +4,8 @@ import math
 
 class Environment:
     def __init__(self):
-        obstacles_rate = 0.2
-        self.size = 14
+        obstacles_rate = 0.1
+        self.size = 100
         self.table = []
         for i in range(self.size):
             self.table.append([])

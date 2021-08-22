@@ -22,39 +22,41 @@ class Seeker:
             if actNode[0] == env.endNode:
                 return actNode[1]
 
-            result = self.get_valid_nodes(env, explored, actNode)
+            result = self.get_valid_nodes(env, explored, frontier, actNode)
             frontier.extend(result)
         return None
 
-    def get_valid_nodes(self, env, explored, actNode):
+    def get_valid_nodes(self, env, explored, frontier, actNode):
 
         tempList = []
         tempExp = []
+        tempFron = []
 
         for element in explored:
             tempExp.append(element[0])
 
+        for element in frontier:
+            tempFron.append(element[0])
+
         if ((actNode[0].x - 1 >= 0) and (env.table[actNode[0].y][actNode[0].x - 1].value != u"\u2B1B")):
             if (env.table[actNode[0].y][actNode[0].x - 1] not in tempExp) == True:
-                tempList.append(
-                    (env.table[actNode[0].y][actNode[0].x - 1], actNode[1]+"L"))
+                if (env.table[actNode[0].y][actNode[0].x - 1] not in tempFron) == True:
+                    tempList.append((env.table[actNode[0].y][actNode[0].x - 1], actNode[1]+"L"))
 
         if ((actNode[0].x + 1 < env.size) and (env.table[actNode[0].y][actNode[0].x + 1].value != u"\u2B1B")):
             if (env.table[actNode[0].y][actNode[0].x + 1] not in tempExp) == True:
-                tempList.append(
-                    (env.table[actNode[0].y][actNode[0].x + 1], actNode[1]+"R"))
+                if (env.table[actNode[0].y][actNode[0].x + 1] not in tempFron) == True:
+                    tempList.append((env.table[actNode[0].y][actNode[0].x + 1], actNode[1]+"R"))
 
         if ((actNode[0].y - 1 >= 0) and (env.table[actNode[0].y - 1][actNode[0].x].value != u"\u2B1B")):
             if (env.table[actNode[0].y - 1][actNode[0].x] not in tempExp) == True:
-                tempList.append(
-                    (env.table[actNode[0].y - 1][actNode[0].x], actNode[1]+"U"))
+                if (env.table[actNode[0].y - 1][actNode[0].x] not in tempFron) == True:
+                    tempList.append((env.table[actNode[0].y - 1][actNode[0].x], actNode[1]+"U"))
 
         if ((actNode[0].y + 1 < env.size) and (env.table[actNode[0].y + 1][actNode[0].x].value != u"\u2B1B")):
             if (env.table[actNode[0].y + 1][actNode[0].x] not in tempExp) == True:
-                tempList.append(
-                    (env.table[actNode[0].y + 1][actNode[0].x], actNode[1]+"D"))
-
-        tempList = self.point_organizer(tempList, env.endNode)
+                if (env.table[actNode[0].y + 1][actNode[0].x] not in tempFron) == True:
+                    tempList.append((env.table[actNode[0].y + 1][actNode[0].x], actNode[1]+"D"))
         return tempList
 
     def depth_first_search(self, env):
@@ -74,7 +76,8 @@ class Seeker:
             if actNode[0] == env.endNode:
                 return actNode[1]
 
-            result = self.get_valid_nodes(env, explored, actNode)
+            result = self.get_valid_nodes(env, explored, [], actNode)
+            result = self.point_organizer(result, env.endNode)
 
             while len(result) > 0:
                 node = result.pop(0)
@@ -84,6 +87,30 @@ class Seeker:
         return None
 
 
+    def uniform_cost_search(self, env):
+        frontier = [(env.startNode, "I")]
+        explored = []
+
+        result = self.uniform_cost_searchR(env, frontier, explored)
+
+        if result != None:
+            return result
+        return False
+
+    def uniform_cost_searchR(self, env, frontier, explored):
+
+        while len(frontier) > 0:
+            actNode = frontier.pop(0)
+            explored.append(actNode)
+
+            if actNode[0] == env.endNode:
+                return actNode[1]
+
+            result = self.get_valid_nodes(env, explored, frontier, actNode)
+            frontier.extend(result)
+            frontier = self.point_organizer(frontier, env.endNode)
+        return None
+    
     def point_organizer(self, list, destiny):
         emptyList = []
 

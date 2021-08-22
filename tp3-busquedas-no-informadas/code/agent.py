@@ -80,6 +80,23 @@ class Agent:
         print("Time: "+str(end-start))
         print("Path: " + moves)
 
+    def seekUC(self):
+        print("START")
+        self.env.print_enviroment()
+        start = time.time()
+        path = self.serch.uniform_cost_search(self.env)
+        moves = path
+        if path == False:
+            return False
+        self.paint_path(path)
+        print("------")
+        print("SOLVED")
+        self.env.print_enviroment()
+        end = time.time()
+        print("")
+        print("Time: "+str(end-start))
+        print("Path: " + moves)
+
     def paint_path(self, path):
         while len(path) > 0:    
             action = path[0]
