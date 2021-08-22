@@ -31,7 +31,7 @@ class Seeker:
             explored.append(actNode)
 
             if actNode[0] == env.endNode:
-                return actNode[1]
+                return (actNode[1], explored)
 
             result = self.get_valid_nodes(env, explored, frontier, actNode)
 
@@ -97,7 +97,7 @@ class Seeker:
             explored.append(actNode)
 
             if actNode[0] == env.endNode:
-                return actNode[1]
+                return (actNode[1], explored)
 
             result = self.get_valid_nodes(env, explored, [], actNode)
 
@@ -134,7 +134,7 @@ class Seeker:
             explored.append(actNode)
 
             if actNode[0] == env.endNode:
-                return actNode[1]
+                return (actNode[1], explored)
 
             result = self.get_valid_nodes(env, explored, frontier, actNode)
             frontier.extend(result)
