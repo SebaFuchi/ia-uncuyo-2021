@@ -4,8 +4,8 @@ import math
 
 class Environment:
     def __init__(self):
-        obstacles_rate = 0.1
-        self.size = 100
+        obstacles_rate = 0.2
+        self.size = 10
         self.table = []
         for i in range(self.size):
             self.table.append([])
@@ -14,6 +14,7 @@ class Environment:
                 node.y = i
                 node.x = j
                 node.value = u"\u2B1C"
+                node.cost = random.randint(0, 25)
                 self.table[i].append(node)
         obstacles = math.ceil((self.size * self.size) * obstacles_rate)
         while obstacles > 0:
@@ -57,3 +58,4 @@ class Node:
     value = None
     x = None
     y = None
+    cost = None

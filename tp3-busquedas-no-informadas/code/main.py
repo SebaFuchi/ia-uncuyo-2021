@@ -4,5 +4,5 @@ import agent
 
 env = environment.Environment()
 ag = agent.Agent(env)
-ag.seekUC()
+ag.seekDF()
 
