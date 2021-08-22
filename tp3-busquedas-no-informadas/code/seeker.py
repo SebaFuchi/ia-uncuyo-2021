@@ -102,8 +102,10 @@ class Seeker:
             result = self.get_valid_nodes(env, explored, [], actNode)
 
             ### path as a function of distance to destination
-            result = self.point_organizer(result, env.endNode)
+            #result = self.point_organizer(result, env.endNode)
 
+            ### randomly weighted graph
+            result = self.point_cost_organizer(result)
             
             # for element in result:
             #     if element[0].value == u"\u2B1C":
@@ -140,10 +142,10 @@ class Seeker:
             frontier.extend(result)
 
             ### path as a function of distance to destination
-            frontier = self.point_organizer(frontier, env.endNode)
+            #frontier = self.point_organizer(frontier, env.endNode)
 
             ### randomly weighted graph
-            ## frontier = self.point_cost_organizer(frontier)
+            frontier = self.point_cost_organizer(frontier)
         return None
     
     def point_organizer(self, list, destiny):

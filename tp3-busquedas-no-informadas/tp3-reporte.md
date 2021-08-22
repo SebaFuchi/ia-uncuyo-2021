@@ -4,8 +4,8 @@
  
 | |Búsqueda por Anchura| Búsqueda por Profundidad limitada |Busqueda Uniforme|
 |---|---|---|---|
-|Media Aritmetica|4743.666666666667 | 64.43333333333334 |66.33333333333333 |
-|Desviación Estandar|2859.6523219263654 | 32.39804520852042 |36.93734987911225 |
+|Media Aritmetica|4743.666666666667 | 2598.9444444444443 |4530.866666666667 |
+|Desviación Estandar|2859.6523219263654 | 1771.137536500939 |2475.973256684347 |
  
 ## PUNTO C ##
  
@@ -14,27 +14,26 @@ Teniendo en cuenta que la consigna del punto A es la siguiente:
  
 #### Búsqueda por Anchura ####
  
-Este método es mucho más ineficiente que los otros dos si se considera tanto su complejidad temporal como espacial, ya que revisa mucha mayor cantidad de puntos en el tablero, pero haciendo esto, podemos estar 100% seguros de que el camino que encontró es el óptimo. Sumado a esto, el ejercicio que se plantea se trata de encontrar el camino mas optimo pero en una grilla no ponderada, por lo que el método de búsqueda por amplitud, sirve especialmente para estos casos ya que, como antes mencione, si o si encontrara el camino mas optimo, si es que existe un camino posible.
+Este método se ejecutó sobre un grafo no ponderado, ya que su medida de camino más óptimo, es el camino más cercano o más corto.
+ 
+Este método es más ineficiente que los otros si tenemos en cuenta su complejidad espacial y temporal, ya que revisa mucha mayor cantidad de posibilidades, pero a su vez, de esta forma se asegura de encontrar siempre el camino más óptimo, en su caso, el camino más corto al destino.
+ 
  
 #### Búsqueda por Profundidad limitada ####
  
-Con una implementación estándar de este método, no es posible encontrar el camino más óptimo, ya que el tablero no es ponderado, por lo que el algoritmo no puede decidir qué camino le conviene basándose en los pesos de los posibles caminos. Para mejorar su eficiencia, implemente una pseudo ponderación, la cual consiste en lo siguiente:
- 
-Una vez que se descubren nuevos nodos, a estos se los ordena en la lista a revisar según su distancia al punto destino, de esta forma, los más cercanos serán desencolados y revisados primero. De esta manera logre mejorar considerablemente el proceso, pero igualmente no se puede asegurar que con esta modificación encontrará siempre el camino óptimo, debido a los obstáculos.
- 
-Sin esta modificación, el algoritmo de búsqueda en profundidad limitada, tomaría caminos de manera aleatoria, ya que todos los caminos tendrían el mismo costo, hasta encontrar el destino o alcanzar el límite de profundidad especificado.
+Para poder aplicar este método se utilizó un grafo ponderado generado de manera aleatoria, ya que no tiene sentido aplicarlo en un grafo no ponderado o del mismo coste, ya que no seguiría ningún criterio para encontrar el camino mas optimo, si no que elegiría caminos aleatorios hasta dar con el objetivo.
  
 #### Búsqueda Uniforme ####
  
-Con este método, pasa lo mismo que con la búsqueda en profundidad, están planteados para ser eficientes si se utiliza un grafo ponderado, pero no es el caso de este ejercicio.
- 
-De igual manera, para mejorar su eficiencia, utilice la estrategia de "pseudo ponderar" en función de la distancia al destino. De esta forma, puedo sacar el juego a la idea de este método, actualizando el orden de su lista de prioridad en función de la distancia que tiene cada nuevo punto descubierto con respecto al destino. Si no se aplica esta modificación, no tendría sentido implementar este método, ya que funciona exactamente igual que la búsqueda en profundidad, elegiría caminos de forma aleatoria hasta dar con el resultado. 
-Si pasara eso, no estaríamos obteniendo el mejor camino
+Este método también se implementó sobre un grafo ponderado, ya que la idea de este método es hacerlo sobre un grafo de este tipo, si no sería exactamente igual que una búsqueda en profundidad sobre un grafo no ponderado.
  
 ### Conclusión ###
  
-Teniendo en cuenta la consigna de buscar el mejor camino, con las modificaciones que aplique a la búsqueda en profundidad y la búsqueda uniforme, estos serían los más eficientes ya que se estaría simulando un entorno ponderado y así logran su eficiencia.
+Con lo antes explicado, a cada uno de los métodos se los colocó en su "ambiente ideal", puntualmente a la búsqueda en profundidad y a la búsqueda uniforme, ya que se los hizo funcionar en un entorno que simula ser ponderado 
  
-Pero si se dejan de lado estas modificaciones, osea se trabajara con los métodos en su forma estándar, teniendo en cuenta que los estamos aplicando en un grafo no ponderado, nunca lograron encontrar el camino mas optimo al destino.
+Teniendo esto en cuenta, y recordando el objetivo inicial "Implementar un agente basado en objetivos que dado un punto de inicio y un punto destino, encuentre el camino óptimo.", el método más óptimo para un grafo no ponderado es la búsqueda en amplitud, ya que aplicar alguno de los otros dos métodos en un grafo de estas características no tendría sentido.
  
-En conclusión, si nos limitamos a la consigna de "Implementar un agente basado en objetivos que dado un punto de inicio y un punto destino, encuentre el camino óptimo.", el método más adecuado para resolver esta tarea sería la búsqueda en amplitud, ya que todas las veces encontrara el camino mas optimo al destino.
+Si se trata de un grafo ponderado, aplicar búsqueda por amplitud no tendría sentido ya que revisaria un nivel a la vez hasta encontrar el destino, pero revisaria muchos nodos de más ya que su principal ventaja se da en grafos no ponderados, en los cuales no hay un criterio de búsqueda definido. Al ser un grafo en el cual los caminos tiene peso, el método más adecuado para encontrar el camino óptimo sería la búsqueda uniforme, ya que puede que revise más cantidad de nodos, pero por su funcionamiento, siempre continúa su ramificación por el camino que menos peso tiene, actualizando estos datos ordenando la lista de nodos descubiertos en función de su peso, de esta forma se asegura de elegir el camino mas optimo.
+La busqueda en profundidad, encontrara el camino de forma mas rapida y revisando menos nodos, pero no sera el mas optimo probablemente, ya que al desencolar de una lista normal, elige un nodo nuevo de los últimos que descubrió, no teniendo en cuenta el contexto general de cual de TODOS los descubiertos tiene el menor peso, por esto es más rápido pero no da el objetivo deseado.
+ 
+Por esto, para grafos no ponderados, la opción siempre sera búsqueda en amplitud, y en grafos ponderados, el camino mas optimo será dado por la búsqueda uniforme, por lo que este seria el mas apropiado para este ejercicio, otra vez, si utilizamos un grafo no ponderado.
