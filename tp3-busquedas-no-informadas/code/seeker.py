@@ -41,7 +41,6 @@ class Seeker:
             #         element[0].value = u"\U0001F7E8"
             frontier.extend(result)
         return None
-
     def get_valid_nodes(self, env, explored, frontier, actNode):
 
         tempList = []
@@ -147,22 +146,6 @@ class Seeker:
             ### randomly weighted graph
             frontier = self.point_cost_organizer(frontier)
         return None
-    
-    def point_organizer(self, list, destiny):
-        emptyList = []
-
-        for element in list:
-            res = math.sqrt((element[0].x-destiny.x)**2 + (element[0].y-destiny.y)**2)
-            obj = (element, res)
-            emptyList.append(obj)
-        emptyList = sorted(emptyList, key=itemgetter(1))
-
-        restList = []
-
-        for element in emptyList:
-            restList.append(element[0])
-
-        return restList
 
     def point_cost_organizer(self, list):
 

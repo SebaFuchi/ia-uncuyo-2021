@@ -9,8 +9,8 @@ ag = agent.Agent()
 #ag.seekDF()
 
 ## breadth_first
-#ag.seekBF()
+ag.seekBF()
 
 ## uniform_cost
-ag.seekUC()
+#ag.seekUC()
 
