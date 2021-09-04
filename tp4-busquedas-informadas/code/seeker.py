@@ -27,8 +27,8 @@ class Seeker:
             # print("")
 
             # EXPLORED
-            # if actNode[0].value == u"\U0001F7E8":
-            #     actNode[0].value = u"\U0001F7EA"
+            if actNode[0].value == u"\U0001F7E8":
+                actNode[0].value = u"\U0001F7EA"
             explored.append(actNode)
 
             if actNode[0] == env.endNode:
@@ -37,9 +37,9 @@ class Seeker:
             prevCost += 1
             result = self.get_valid_nodes(env, explored, frontier, actNode)
             ## DISCOVERED
-            # for element in result:
-            #     if element[0].value == u"\u2B1C":
-            #         element[0].value = u"\U0001F7E8"
+            for element in result:
+                if element[0].value == u"\u2B1C":
+                    element[0].value = u"\U0001F7E8"
             frontier.extend(result)
 
             frontier = self.point_organizer(frontier, destiny, prevCost)
@@ -87,8 +87,8 @@ class Seeker:
             # print("")
 
             # EXPLORED
-            # if actNode[0].value == u"\U0001F7E8":
-            #     actNode[0].value = u"\U0001F7EA"
+            if actNode[0].value == u"\U0001F7E8":
+                actNode[0].value = u"\U0001F7EA"
             explored.append(actNode)
 
             if actNode[0] == env.endNode:
@@ -97,9 +97,9 @@ class Seeker:
             prevCost += actNode[0].cost
             result = self.get_valid_nodes(env, explored, frontier, actNode)
             ## DISCOVERED
-            # for element in result:
-            #     if element[0].value == u"\u2B1C":
-            #         element[0].value = u"\U0001F7E8"
+            for element in result:
+                if element[0].value == u"\u2B1C":
+                    element[0].value = u"\U0001F7E8"
             frontier.extend(result)
 
             frontier = self.point_organizer_ponder(frontier, destiny, prevCost)

@@ -2,4 +2,4 @@ import agent
 
 ag = agent.Agent()
 
-ag.seekASP()
+ag.seekAS()
