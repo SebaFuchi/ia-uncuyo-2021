@@ -16,7 +16,7 @@ class Board:
                 self.board[i].append(node)
 
         queensPos = [n for n in range(0, self.size)]
-        random.shuffle(queensPos)  
+        random.shuffle(queensPos) 
         self.queensNodes = []
         ## set queens
         for i in range(self.size):
@@ -47,7 +47,6 @@ class Board:
             queen.value = u"\u2B1B"
 
 
-    # falla a la hora de contar
     def check_cost(self, node):
         cont = 0
         cont += self.check_hor(node)

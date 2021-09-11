@@ -16,7 +16,7 @@ class Climber:
         self.state.print_cost()
 
         print()
-        maxIt= 10
+        maxIt= 40
         cont = 0
 
         while maxIt > 0:
@@ -56,7 +56,6 @@ class Climber:
         element = min_h.pop(0)
         self.h = element[1]
         
-
         element[0].value = u"\u2B1B"
 
         self.state.queensNodes[element[0].x] = u"\u2B1C"
