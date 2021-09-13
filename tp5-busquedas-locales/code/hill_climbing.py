@@ -1,11 +1,35 @@
 from operator import itemgetter
 import board
+import time
 
 class Climber:
     def __init__(self, size):
         self.state = board.Board(size)
         self.h = self.state.get_h()
 
+    def solution_iterator():
+
+        opt_result = 0
+        time_prom = None
+        for i in range(30):
+            solution = self.solution()
+
+
+
+    def solution():
+        start_time = time()
+        self.state.get_h_board()
+        maxIt= 40
+        cont = 0
+
+        while maxIt > 0:
+            if self.new_state() == False:
+                break
+            cont += 1
+            maxIt -= 1
+
+        final_time = time() - start_time
+        return (self.h, cont, final_time)
 
     def solution_finder(self):
         self.state.print_board()
