@@ -1,4 +1,5 @@
 import random
+import time
 
 class Genetic:
     def __init__(self,size):
@@ -8,9 +9,24 @@ class Genetic:
         for i in range(size-1):
             self.worse += (size-1)-i
 
-        for i in range(150):
+        for i in range(300):
             b = Board(size)
             self.population.append(b)
+
+
+    def solution(self):
+        start_time = time.time()
+
+        self.best = None
+        self.best_fit = self.worse
+        self.best_iteration = None
+        self.h_to_g = []
+        for i in range(500):
+            self.new_population()
+            self.select_best(i)
+
+        final_time = time.time() - start_time
+        return (self.best.get_h(), self.best_iteration, final_time, self.h_to_g)
 
 
     def solution_finder(self):
@@ -27,13 +43,12 @@ class Genetic:
         self.best = None
         self.best_fit = self.worse
         self.best_iteration = None
+        self.h_to_g = []
         for i in range(200):
             self.new_population()
             self.select_best(i)
 
         return self.best
-
-
 
     def new_population(self):
         new_population = []
@@ -102,6 +117,9 @@ class Genetic:
                 self.best_fit = cost
                 self.best = self.population[i]
                 self.best_iteration = count
+
+            if i == 0:
+                self.h_to_g.append(cost)
 
 
 

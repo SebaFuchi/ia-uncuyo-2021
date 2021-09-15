@@ -2,12 +2,31 @@ from operator import itemgetter
 import board
 import random
 import math
+import time
 
 class Climber:
     def __init__(self, size):
         self.state = board.Board(size)
         self.h = self.state.get_h()
         self.time = 1
+
+
+    def solution(self):
+        start_time = time.time()
+        self.state.get_h_board()
+        cont = 0
+        h_to_g = [self.h]
+
+        while self.time < 1000:
+            cont += 1
+            res = self.new_state()
+            self.state.get_h_board()
+            h_to_g.append(res)
+            if res == 0:
+                break
+
+        final_time = time.time() - start_time
+        return (self.h, cont, final_time, h_to_g)
 
     def solution_finder(self):
         self.state.print_board()
@@ -66,4 +85,4 @@ class Climber:
                         flag = False
 
         self.time +=2
-        return
+        return self.h
