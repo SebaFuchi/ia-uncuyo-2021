@@ -9,10 +9,10 @@ opt_result = 0
 prev_states = []
 time = []
 cont = 0
-iter = 50
+iter = 30
 for i in range(iter):
-    #c = hill_climbing.Climber(10)
-    #c = simulated_annealing.Climber(10)
+    #c = hill_climbing.Climber(8)
+    #c = simulated_annealing.Climber(8)
     c= genetic.Genetic(10)
     s = c.solution()
     if s[0] == 0:
@@ -66,10 +66,12 @@ if cont != 0:
 else:
     print("Nunca encontro solucion")
 
-print(h_to_g)
+#print(h_to_g)
+print(prev_states)
+print(time)
 
 
-# g = genetic.Genetic(10)
+# g = genetic.Genetic(8)
 
 # best = g.solution_finder()
 

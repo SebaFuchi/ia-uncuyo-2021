@@ -1,5 +1,6 @@
 import random
 import time
+from operator import itemgetter
 
 class Genetic:
     def __init__(self,size):
@@ -9,7 +10,7 @@ class Genetic:
         for i in range(size-1):
             self.worse += (size-1)-i
 
-        for i in range(300):
+        for i in range(100):
             b = Board(size)
             self.population.append(b)
 
@@ -21,7 +22,7 @@ class Genetic:
         self.best_fit = self.worse
         self.best_iteration = None
         self.h_to_g = []
-        for i in range(500):
+        for i in range(200):
             self.new_population()
             self.select_best(i)
 
@@ -57,8 +58,11 @@ class Genetic:
             parents = self.select_parents()
             childs = self.reproduce(parents)
             new_population.extend(childs)
+            olds = self.preserve_bests()
+            survivers = self.kill_them_all(new_population)
 
-        self.population = new_population
+        olds.extend(survivers)
+        self.population = olds
 
 
     def select_parents(self):
@@ -109,6 +113,34 @@ class Genetic:
             child[pos] = num
             child = ''.join(map(str, child))
         return child
+
+    def preserve_bests(self):
+        elements = []
+        for i in range(len(self.population)):
+            elements.append((self.population[i], self.population[i].get_h()))
+
+        elements = sorted(elements, key=itemgetter(1))
+
+        result = []
+        for e in elements:
+            result.append(e[0])
+
+        return result[0:int(len(result)/5)]
+
+    def kill_them_all(self,new_population):
+        elements = []
+        for i in range(len(new_population)):
+            elements.append((new_population[i], new_population[i].get_h()))
+
+        elements = sorted(elements, key=itemgetter(1))
+
+        result = []
+        for e in elements:
+            result.append(e[0])
+        
+        result.reverse()
+
+        return result[int(len(result)/5):]
 
     def select_best(self,count):
         for i in range(len(self.population)):
