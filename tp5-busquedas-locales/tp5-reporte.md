@@ -59,3 +59,8 @@
 
 ## C (Conclusion)
 
+Mediante un análisis y comparación de los datos que se obtuvieron de cada uno de los diferentes algoritmos, llego a la conclusión que Simulated Annealing es el algoritmo mas óptimo para este problema. Esto se debe a que me permite escapar del problema que presenta Hill Climbing, los máximos o mínimos locales, con el uso de la probabilidad, puedo escapar de esto, mejorando enormemente los resultados.
+
+A su vez, es mejor que un algoritmo genético, ya que a medida que el problema crece, se tienen que incorporar mas sujetos a la población y mas generaciones, esto retarda el proceso de encontrar una solución y me fuerza a recorrer muchos mas estados antes de dar con la solución óptima.
+
+Simulated Annealing me brinda el resultado mas óptimo un mayor porcentaje de veces que Hill Climbing y a su vez es mas eficiente con el uso del tiempo y estados que un algoritmo genético.
