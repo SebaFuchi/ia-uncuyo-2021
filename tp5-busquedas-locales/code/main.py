@@ -2,6 +2,8 @@ import hill_climbing
 import simulated_annealing
 import genetic
 import math
+import matplotlib.pyplot as plt
+
 
 flag = False
 h_to_g = []
@@ -11,9 +13,9 @@ time = []
 cont = 0
 iter = 30
 for i in range(iter):
-    #c = hill_climbing.Climber(8)
-    #c = simulated_annealing.Climber(8)
-    c= genetic.Genetic(10)
+    #c = hill_climbing.Climber(10)
+    #c = simulated_annealing.Climber(10)
+    c = genetic.Genetic(8)
     s = c.solution()
     if s[0] == 0:
         cont += 1
@@ -63,19 +65,11 @@ if cont != 0:
     print("DESVIACION ESTANDAR DE LOS ESTADOS PARA ENCONTRAR UNA SOLUCION OPTIMA: ")
     print(desv_s)
     print()
+    fig, ax = plt.subplots()
+    ax.plot(h_to_g)
+    ax.set_xlabel("Tiempo")
+    ax.set_ylabel("h()")
+    plt.show()
 else:
     print("Nunca encontro solucion")
 
-#print(h_to_g)
-print(prev_states)
-print(time)
-
-
-# g = genetic.Genetic(8)
-
-# best = g.solution_finder()
-
-# print("BEST")
-# best.print_board()
-# print(best.get_h())
-# print(g.best_iteration)

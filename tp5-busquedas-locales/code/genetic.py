@@ -150,8 +150,8 @@ class Genetic:
                 self.best = self.population[i]
                 self.best_iteration = count
 
-            if i == 0:
-                self.h_to_g.append(cost)
+            #if i == 0:
+            self.h_to_g.append(cost)
 
 
 
