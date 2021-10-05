@@ -1,14 +1,20 @@
+import time
 
 class BTraking:
     def __init__(self,size):
         self.size = size
+        self.states = 0
 
 
     def find_solution(self):
+        start_time = time.time()
         for i in range(0, self.size):
             res = self.recurs_solv([i])
             if res != False:
                 self.print_board(res)
+                final_time = time.time() - start_time
+                print(self.states)
+                print(final_time)
                 break
         return
 
@@ -16,6 +22,7 @@ class BTraking:
 
 
     def recurs_solv(self,queens):
+        self.states += 1
         for i in range(0, self.size):
             if i not in queens:
                 queens.append(i)

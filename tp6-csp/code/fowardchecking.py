@@ -1,19 +1,23 @@
 import board
 import copy
+import time
 
 class Foward:
     def __init__(self,size):
         self.size = size
         self.board = board.Board(size)
+        self.states = 0
 
     def find_solution(self):
+        start_time = time.time()
         colum = self.board.slots[0]
         for element in colum:
             result = self.recurs_solv(0, element, copy.deepcopy(self.board))
-            if result != False:
+            if result != False and result != None:
                 result.reverse()
-                self.board.print_board(result)
-                break
+                #self.board.print_board(result)
+                final_time = time.time() - start_time
+                return (result,self.states,final_time)
         
                 
 
@@ -30,7 +34,7 @@ class Foward:
                 return None
 
             for new_elem in colum:
-
+                self.states += 1
                 result = self.recurs_solv(x+1, new_elem, copy.deepcopy(board)) 
 
                 if result == False:
