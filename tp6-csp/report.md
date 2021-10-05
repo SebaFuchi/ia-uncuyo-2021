@@ -22,6 +22,8 @@ NSW = {rojo,verde,azul}
 T = {rojo,verde,azul}
 V = {azul}
 
+![image](https://user-images.githubusercontent.com/61237150/136057111-ff05ce65-6f2e-4db9-87d5-1e6e356ff6c4.png)
+
 
 Luego, elijo el arco WA-NT para verificar su consistencia, sacándolo de la cola. 
 Al hacer la verificación, encuentro que WA es arco-consistente con NT, por lo que se pasa al siguiente arco.
