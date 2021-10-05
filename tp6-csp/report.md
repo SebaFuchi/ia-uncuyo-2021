@@ -175,3 +175,41 @@ Por esto, si bien nuestro problema inicial contenía restricciones de más de do
 
 
 b) Gracias al ejercicio anterior, llegamos a la conclusión de que es posible resolver un CSP cuyo grafo de restricciones es un árbol, mediante la arco-consistencia de cada una de sus variables, es decir, el algoritmo citado en el ejercicio anterior resulta correcto para todos los CSP cuyo grafo de restricciones pueda ser convertido en un árbol, a pesar de que en un principio parezca que tenemos que lidiar con la n-consistencia.
+
+#### 6. Implementar una solución al problema de las n-reinas utilizando una formulación CSP
+##### c. En cada variante, calcular los tiempos de ejecución para los casos de 4, 8, 10, 12 y 15 reinas
+
+Tiempos FowardCheking:
+[0.0, 0.004985332489013672, 0.004986763000488281, 0.015957117080688477, 0.11170125007629395]
+
+
+Tiempos BackTraking:
+[0.0, 0.0019943714141845703, 0.002991914749145508, 0.010970592498779297, 0.09478330612182617]
+
+##### d. En cada variante, calcular la cantidad de estados recorridos antes de llegar a la solución para los casos de 4, 8, 10, 12 y 15 reinas.
+
+Estados FowardCheking:
+[6, 87, 82, 192, 1025]
+
+Estados Backtraking:
+[7, 112, 101, 260, 1358]
+
+##### e. Realizar un gráfico de cajas para los puntos c y d.
+
+Tiempo Backtraking:
+
+![image](https://user-images.githubusercontent.com/61237150/136060956-21c3cb4e-2956-4838-9c0c-87ad233e6efd.png)
+
+Estados Backtraking:
+
+![image](https://user-images.githubusercontent.com/61237150/136061036-5a1fb940-20c4-4d0a-aeae-d995870384bd.png)
+
+
+Tiempo FowardCheking:
+
+![image](https://user-images.githubusercontent.com/61237150/136061197-74a4e30d-b3bc-4b67-90cd-31a8c7af9fb2.png)
+
+Estados FowardCheking:
+
+![image](https://user-images.githubusercontent.com/61237150/136061256-e8260198-88b4-499c-b4e1-18c51e8d43f6.png)
+
