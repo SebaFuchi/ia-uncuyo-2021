@@ -11,11 +11,9 @@ class BTraking:
         for i in range(0, self.size):
             res = self.recurs_solv([i])
             if res != False:
-                self.print_board(res)
+                # self.print_board(res)
                 final_time = time.time() - start_time
-                print(self.states)
-                print(final_time)
-                break
+                return (res, self.states, final_time)
         return
 
 
