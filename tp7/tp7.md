@@ -26,3 +26,8 @@
 
 ![image](https://user-images.githubusercontent.com/61237150/138526096-6284b624-f7b3-43a9-975a-15b82388e115.png)
 
+## Ej 4
+|N = 31912|Predic. peligrosa|Predic. no peligrosa|
+|---|---|---|
+|Inc peligrosa|1813|1766|
+|Inc no peligrosa|14041|14292|
