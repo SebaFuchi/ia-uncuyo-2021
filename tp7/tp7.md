@@ -16,3 +16,13 @@
  ### c) Especies peligrosas
  
 ![image](https://user-images.githubusercontent.com/61237150/138500839-b12b3979-07da-49cc-ba92-d3c2dec98460.png)
+
+## Ej 3
+### Histograma sin flitrar 
+
+![image](https://user-images.githubusercontent.com/61237150/138525995-07b9eea0-f275-4125-8d68-e2cb1dc955fc.png)
+
+### Histograma filtrado
+
+![image](https://user-images.githubusercontent.com/61237150/138526096-6284b624-f7b3-43a9-975a-15b82388e115.png)
+
