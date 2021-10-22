@@ -31,3 +31,9 @@
 |---|---|---|
 |Inc peligrosa|1813|1766|
 |Inc no peligrosa|14041|14292|
+
+## Ej 5
+|N = 31912|Predic. peligrosa|Predic. no peligrosa|
+|---|---|---|
+|Inc peligrosa|0|3579|
+|Inc no peligrosa|0|28333|
