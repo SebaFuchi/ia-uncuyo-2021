@@ -1,0 +1,72 @@
+library(dplyr) 
+library(readr)
+library(rpart)
+library(caret)
+library(randomForest)
+# Load dataset 
+
+set.seed(123)
+treesDataset <- read.csv("C:/Users/sebas/Downloads/arbolado-publico-mendoza/arbolado-mza-dataset.csv")
+treesTestSet <- read.csv("C:/Users/sebas/Downloads/arbolado-publico-mendoza/arbolado-mza-dataset-test.csv")
+
+treesDataset$inclinacion_peligrosa <- as.factor(treesDataset$inclinacion_peligrosa)
+trainIndex <- createDataPartition(as.factor(treesDataset$inclinacion_peligrosa),p=0.80,list=FALSE)
+
+trainData <- treesDataset[ trainIndex, ]
+testData <- treesDataset[ -trainIndex, ]
+
+# Save trees ID
+treesID <- treesTestSet$id
+
+
+drop <- names(trainData) %in% c("ultima_modificacion")
+trainData <- trainData[,!drop]
+
+drop <- names(trainData) %in% c("lat")
+trainData <- trainData[,!drop]
+
+drop <- names(trainData) %in% c("long")
+trainData <- trainData[,!drop]
+
+drop <- names(trainData) %in% c("area_seccion")
+trainData <- trainData[,!drop]
+
+
+drop <- names(treesTestSet) %in% c("ultima_modificacion")
+treesTestSet <- treesTestSet[,!drop]
+
+drop <- names(treesTestSet) %in% c("lat")
+treesTestSet <- treesTestSet[,!drop]
+
+drop <- names(treesTestSet) %in% c("long")
+treesTestSet <- treesTestSet[,!drop]
+
+drop <- names(treesTestSet) %in% c("area_seccion")
+treesTestSet <- treesTestSet[,!drop]
+
+positives <- trainData %>% filter(inclinacion_peligrosa == 1)
+negatives <- trainData %>% filter(inclinacion_peligrosa == 0)
+
+# Take some random negatives for sample
+splitted <- sample(1:nrow(negatives),replace = F, size = 3800)
+negatives <- negatives[ splitted, ]
+trainData <- rbind(negatives,positives)
+
+
+# Train model
+rf <- randomForest(inclinacion_peligrosa ~ altura + especie + diametro_tronco,data=trainData, importance=TRUE, ntree=600, mtry=2)
+inclinacion_peligrosa <- predict(rf, newdata=treesTestSet)
+print(rf)
+importance(rf)
+
+
+# Formatting
+inclinacion_peligrosa <- as.numeric(as.character(inclinacion_peligrosa))
+id <- treesID
+results <- data.frame(id,inclinacion_peligrosa)
+results
+
+
+write.csv(results,"results.csv")
+
+
