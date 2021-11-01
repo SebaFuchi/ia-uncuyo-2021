@@ -1,4 +1,7 @@
 # Optimizacion de espacio (3D-Realidad aumentada)
+### CODIGO:
+##### SO3D-AR
+
 ### INTEGRANTES:
 ##### Silva,Daniel
 ##### Fuchilieri, Sebastian
