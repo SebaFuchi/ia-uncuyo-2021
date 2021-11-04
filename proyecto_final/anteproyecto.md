@@ -48,3 +48,6 @@ Por eso se planea trabajar en el proyecto a partir finales de enero, llevando to
 para aprovechar las mesas de consulta y revisar el avance.
 
 Estimacion de tiempo: 1-2 meses de desarrollo.
+
+## Gantt
+![image](https://user-images.githubusercontent.com/61237150/140330560-cc362ff5-33fc-4fa6-a746-0b1791b7001c.png)
